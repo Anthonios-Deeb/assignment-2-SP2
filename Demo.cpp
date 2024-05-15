@@ -17,25 +17,17 @@ using namespace ariel;
 int main()
 {
     Graph g1;
-    Graph g2;
+    vector<vector<int>> adjmat1 = {
+        {0, 1, 2, 0, 0},
+        {1, 0, 6, 0, 0},
+        {2, 6, 0, 9, 0},
+        {0, 0, 9, 0, 0},
+        {0, 0, 0, 0, 0}};
+    g1.loadGraph(adjmat1);
 
-    vector<vector<int>> graph = {
-        {0, 1, 0},
-        {1, 0, 1},
-        {0, 1, 0}};
+    g1--;
 
-    g1.loadGraph(graph);
-
-    vector<vector<int>> weightedGraph = {
-        {0, 1, 1},
-        {1, 0, 2},
-        {1, 2, 0}};
-    g2.loadGraph(weightedGraph);
-
-    Graph g3;
-
-    cout << g1++;
-
+    
 
     return 0;
 }

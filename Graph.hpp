@@ -19,28 +19,33 @@ namespace ariel
     vector<vector<int>> getAdjMatrix();
 
     Graph operator+(const Graph &g);
-
-    Graph &operator+=(const Graph &g);
-    Graph &operator+();
     Graph &operator++();
     Graph operator++(int);
+    Graph &operator+=(const Graph &g);
+
+    //TODO: Test the following operators
+    Graph &operator+();
+   
 
     Graph operator-(const Graph &g);
     Graph &operator-=(const Graph &g);
-    Graph &operator-();
+    Graph operator--(int);
     Graph &operator--();
 
-    Graph &operator*(int);
-    Graph &operator*=(int);
+    //TODO: Test the following operators
+    Graph &operator-();
+
     Graph &operator*(const Graph &g);
     Graph &operator*=(const Graph &g);
+    Graph &operator*(int);
+    Graph &operator*=(int);
     Graph &operator/(int);
     Graph &operator/=(int);
 
     bool operator==(const Graph &g);
     bool operator>(const Graph &g);
-    bool operator>=(const Graph &g);
     bool operator<(const Graph &g);
+    bool operator>=(const Graph &g);
     bool operator<=(const Graph &g);
     bool operator!=(const Graph &g);
 

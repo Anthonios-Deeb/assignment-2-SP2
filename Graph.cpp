@@ -71,8 +71,6 @@ Graph Graph::operator+(const Graph &other)
     }
   }
 
-
-
   Graph g;
   g.loadGraph(newMatrix);
   return g;
@@ -118,9 +116,27 @@ Graph &Graph::operator++()
   return *this;
 }
 
-Graph &Graph::operator-(const Graph &other)
+Graph Graph::operator++(int)
 {
-  vector<vector<int>> newMatrix;
+  Graph g = *this;
+
+  for (size_t i = 0; i < this->adjMat.size(); i++)
+  {
+    for (size_t j = 0; j < this->adjMat[i].size(); j++)
+    {
+      if (this->adjMat[i][j] != 0)
+      {
+        this->adjMat[i][j]++;
+      }
+    }
+  }
+  return g;
+}
+
+
+Graph Graph::operator-(const Graph &other)
+{
+  vector<vector<int>> newMatrix (this->adjMat.size(), vector<int>(this->adjMat.size(), 0));
   vector<vector<int>> otheradjMatrix = other.adjMat;
 
   if (this->adjMat.size() != otheradjMatrix.size())
@@ -136,9 +152,9 @@ Graph &Graph::operator-(const Graph &other)
     }
   }
 
-  Graph *g = new Graph();
-  g->loadGraph(newMatrix);
-  return *g;
+  Graph g;
+  g.loadGraph(newMatrix);
+  return g;
 }
 
 Graph &Graph::operator-=(const Graph &other)
@@ -187,7 +203,6 @@ Graph &Graph::operator--()
   return *this;
 }
 
-// scalar multiplication
 Graph &Graph::operator*(int num)
 {
   vector<vector<int>> newMatrix;
@@ -408,17 +423,18 @@ bool Graph::operator!=(const Graph &other)
   return !(*this == other);
 }
 
-// Should print the matrix of the graph: [0, -2, 0], [-2, 0, -2], [0, -2, 0]
-ostream &ariel::operator<<(ostream &os, const Graph &g)
+
+ostream &ariel::operator<<(ostream &os,const Graph &g)
 {
   for (auto &i : g.adjMat)
   {
     os << "[";
     for (int j : i)
     {
-      os << j << ", ";
+      os << j << ",";
     }
-    os << "], ";
+    os << "]";
+    os << endl;
   }
   
   return os;

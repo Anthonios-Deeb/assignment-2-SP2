@@ -10,6 +10,7 @@ using ariel::Algorithms;
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+
 using namespace std;
 using namespace ariel;
 
@@ -32,11 +33,8 @@ int main()
     g2.loadGraph(weightedGraph);
 
     Graph g3;
-   
 
-    g3 = g1 + g2;
-
-    cout << g3 << endl;
+    cout << g1++;
 
 
     return 0;

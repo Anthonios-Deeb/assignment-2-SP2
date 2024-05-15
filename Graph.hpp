@@ -1,6 +1,7 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 #include <vector>
+#include <iostream>
 using namespace std;
 
 namespace ariel
@@ -22,8 +23,9 @@ namespace ariel
     Graph &operator+=(const Graph &g);
     Graph &operator+();
     Graph &operator++();
+    Graph operator++(int);
 
-    Graph &operator-(const Graph &g);
+    Graph operator-(const Graph &g);
     Graph &operator-=(const Graph &g);
     Graph &operator-();
     Graph &operator--();
@@ -42,12 +44,12 @@ namespace ariel
     bool operator<=(const Graph &g);
     bool operator!=(const Graph &g);
 
-    friend ostream &operator<<(ostream &os, const Graph &g);
+   
 
   private:
     vector<vector<int>> adjMat;
+    friend ostream &operator<<(ostream &os,const Graph &g);
   }; 
 }
-
 
 #endif

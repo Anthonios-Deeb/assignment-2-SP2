@@ -3,7 +3,6 @@
 #include "Algorithms.hpp"
 #include "Graph.hpp"
 
-
 using namespace std;
 using namespace ariel;
 
@@ -665,7 +664,7 @@ TEST_CASE("Test negativeCycle Does not Exist")
     g.loadGraph(graph0);
     CHECK(Algorithms::negativeCycle(g) == "-1");
 
-     vector<vector<int>> graph1 = {
+    vector<vector<int>> graph1 = {
         {0, 2, 1, 0, 0, 0},
         {2, 0, 3, 5, 0, 0},
         {1, 3, 0, 0, 1, 0},
@@ -695,4 +694,29 @@ TEST_CASE("Test invalid graph Row missing")
         {0, 1, 2},
         {1, 0, 3}};
     CHECK_THROWS(g.loadGraph(graph0));
+}
+
+TEST_CASE("Plus")
+{
+    SUBCASE("graph1 = graph2 + graph3")
+    {
+        Graph g;
+        vector<vector<int>> g1 = {
+            {0, 2, 0},
+            {2, 0, 3},
+            {0, 3, 0}};
+        g.loadGraph(g1);
+
+        vector<vector<int>> g2 = {
+            {0, -1, 0},
+            {1, 0, 1},
+            {0, 2, 0}};
+        g.loadGraph(g2);
+
+        Graph g3;
+        
+
+        CHECK(g3.getAdjMatrix() == vector<vector<int>{{0, 1, 0},{3, 0, 4},{0, 5, 0}});
+       
+    }
 }

@@ -17,7 +17,8 @@ namespace ariel
     void printMatrix();
     vector<vector<int>> getAdjMatrix();
 
-    Graph &operator+(const Graph &g);
+    Graph operator+(const Graph &g);
+
     Graph &operator+=(const Graph &g);
     Graph &operator+();
     Graph &operator++();
@@ -40,6 +41,8 @@ namespace ariel
     bool operator<(const Graph &g);
     bool operator<=(const Graph &g);
     bool operator!=(const Graph &g);
+
+    friend ostream &operator<<(ostream &os, const Graph &g);
 
   private:
     vector<vector<int>> adjMat;

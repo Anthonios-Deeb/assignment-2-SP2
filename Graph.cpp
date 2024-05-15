@@ -52,10 +52,9 @@ vector<vector<int>> Graph::getAdjMatrix()
   return adjMat;
 }
 
-Graph &Graph::operator+(const Graph &other)
+Graph Graph::operator+(const Graph &other)
 {
-  cout << "Here 1" << endl;
-  vector<vector<int>> newMatrix;
+  vector<vector<int>> newMatrix (this->adjMat.size(), vector<int>(this->adjMat.size(), 0));
   vector<vector<int>> myadjMatrix = this->adjMat;
   vector<vector<int>> otheradjMatrix = other.adjMat;
 
@@ -63,8 +62,7 @@ Graph &Graph::operator+(const Graph &other)
   {
     throw invalid_argument("Invalid graph: The graph is not a square matrix.");
   }
-
-  cout << "Here 2" << endl;
+ 
   for (size_t i = 0; i < myadjMatrix.size(); i++)
   {
     for (size_t j = 0; j < myadjMatrix[i].size(); j++)
@@ -73,7 +71,8 @@ Graph &Graph::operator+(const Graph &other)
     }
   }
 
- 
+
+
   Graph g;
   g.loadGraph(newMatrix);
   return g;
@@ -407,4 +406,20 @@ bool Graph::operator<=(const Graph &other)
 bool Graph::operator!=(const Graph &other)
 {
   return !(*this == other);
+}
+
+// Should print the matrix of the graph: [0, -2, 0], [-2, 0, -2], [0, -2, 0]
+ostream &ariel::operator<<(ostream &os, const Graph &g)
+{
+  for (auto &i : g.adjMat)
+  {
+    os << "[";
+    for (int j : i)
+    {
+      os << j << ", ";
+    }
+    os << "], ";
+  }
+  
+  return os;
 }

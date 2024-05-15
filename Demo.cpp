@@ -22,6 +22,7 @@ int main()
         {0, 1, 0},
         {1, 0, 1},
         {0, 1, 0}};
+
     g1.loadGraph(graph);
 
     vector<vector<int>> weightedGraph = {
@@ -34,11 +35,9 @@ int main()
    
 
     g3 = g1 + g2;
-    
-    g1.printMatrix();
 
-  
-    
+    cout << g3 << endl;
+
 
     return 0;
 }

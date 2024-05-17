@@ -39,7 +39,23 @@ myGraph.loadGraph(adjacencyList);
 myGraph.printGraph();
 vector<vector<int>> adjacencyMatrix = myGraph.getAdjMatrix();
 
+  Graph graph1, graph2;
 
+    // Load graphs
+    vector<vector<int>> graphData1 = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
+    vector<vector<int>> graphData2 = {{1, 1, 0}, {1, 0, 1}, {0, 1, 1}};
+    graph1.loadGraph(graphData1);
+    graph2.loadGraph(graphData2);
+
+    // Perform operations
+    ariel::Graph resultAddition = graph1 + graph2;
+    ariel::Graph resultMultiplication = graph1 * graph2;
+
+    // Print details
+    cout << "Result of addition:" << endl;
+    cout << resultAddition;
+    cout << "Result of multiplication:" << endl;
+    cout << resultMultiplication;
 
 return 0;
 }

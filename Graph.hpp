@@ -1,3 +1,5 @@
+//324933993
+//anthoniosdb@gmail.com
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 #include <vector>
@@ -23,7 +25,7 @@ namespace ariel
     Graph operator++(int);
     Graph &operator+=(const Graph &g);
 
-    //TODO: Test the following operators
+   
     Graph &operator+();
    
 
@@ -32,7 +34,7 @@ namespace ariel
     Graph operator--(int);
     Graph &operator--();
 
-    //TODO: Test the following operators
+  
     Graph &operator-();
 
     Graph &operator*(const Graph &g);

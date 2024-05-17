@@ -37,18 +37,6 @@ void Graph::printDetails()
   cout << "Graph with " << adjMat.size() << " vertices and " << edges << " edges." << endl;
 }
 
-void Graph::printMatrix()
-{
-  for (auto &i : adjMat)
-  {
-    for (int j : i)
-    {
-      cout << j << " ";
-    }
-    cout << endl;
-  }
-}
-
 vector<vector<int>> Graph::getAdjMatrix()
 {
   return adjMat;

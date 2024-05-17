@@ -9,6 +9,8 @@ This is a simple C++ class named `Graph` designed to represent a graph using an 
 - `Load Graph`: Load a graph into the `Graph` object.
 - `Print Graph`: Print the adjacency list representation of the loaded graph.
 - `Get Adjacency Matrix`: Retrieve the adjacency matrix of the loaded graph.
+- `Arithmetic Operations`:Perform arithmetic operations such as addition, subtraction, multiplication, and division on graphs.
+- `Comparison Operators`: Compare graphs based on equality, greater than, less than, greater than or equal to, less than or equal to, and inequality.
 
 ### Usage
 1. `Constructor`: Default constructor to initialize the graph.
@@ -36,6 +38,9 @@ int main() {
 myGraph.loadGraph(adjacencyList);
 myGraph.printGraph();
 vector<vector<int>> adjacencyMatrix = myGraph.getAdjMatrix();
+
+
+
 return 0;
 }
 ```

@@ -27,7 +27,8 @@ Example:
 ```cpp
 #include "Graph.hpp"
 #include <iostream>
-
+using namespace ariel;
+using namespase std;
 int main() {
   Graph myGraph;
   vector<vector<int>> adjacencyList = {
@@ -48,8 +49,8 @@ vector<vector<int>> adjacencyMatrix = myGraph.getAdjMatrix();
     graph2.loadGraph(graphData2);
 
     // Perform operations
-    ariel::Graph resultAddition = graph1 + graph2;
-    ariel::Graph resultMultiplication = graph1 * graph2;
+    Graph resultAddition = graph1 + graph2;
+    Graph resultMultiplication = graph1 * graph2;
 
     // Print details
     cout << "Result of addition:" << endl;

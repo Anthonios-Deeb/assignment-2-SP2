@@ -1,5 +1,4 @@
-This is the first assignment for the Software Programing Course it covers essential graph algorithms such as connectivity of the graph , shortest paths, cycle detection, bipartite graphs, and negative cycles detection.
-
+This is the second assignment for the Software Programing Course it covers essential graph algorithms such as connectivity of the graph , shortest paths, cycle detection, bipartite graphs, and negative cycles detection in this assignment I added operators for the Graph, these operators will NOT effect the way that the algorithms work in class Algorithms. 
 ## Graph Class 
 
 ### Overview
@@ -36,29 +35,52 @@ int main() {
     {1, 0, 0, 1},
     {1, 0, 0, 1},
     {0, 1, 1, 0}};
-myGraph.loadGraph(adjacencyList);
-myGraph.printGraph();
-vector<vector<int>> adjacencyMatrix = myGraph.getAdjMatrix();
+  myGraph.loadGraph(adjacencyList);
+  myGraph.printGraph();
+  vector<vector<int>> adjacencyMatrix = myGraph.getAdjMatrix();
 
   Graph graph1, graph2;
 
     // Load graphs
-    vector<vector<int>> graphData1 = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
-    vector<vector<int>> graphData2 = {{1, 1, 0}, {1, 0, 1}, {0, 1, 1}};
-    graph1.loadGraph(graphData1);
-    graph2.loadGraph(graphData2);
+  vector<vector<int>> graphData1 = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
+  vector<vector<int>> graphData2 = {{1, 1, 0}, {1, 0, 1}, {0, 1, 1}};
+  graph1.loadGraph(graphData1);
+  graph2.loadGraph(graphData2);
 
     // Perform operations
-    Graph resultAddition = graph1 + graph2;
-    Graph resultMultiplication = graph1 * graph2;
+  Graph resultAddition = graph1 + graph2;
+  Graph resultMultiplication = graph1 * graph2;
 
     // Print details
-    cout << "Result of addition:" << endl;
-    cout << resultAddition;
-    cout << "Result of multiplication:" << endl;
-    cout << resultMultiplication;
+  cout << "Result of addition:" << endl;
+  cout << resultAddition;
+  cout << "Result of multiplication:" << endl;
+  cout << resultMultiplication;
 
-return 0;
+  Graph g1;
+
+  vector<vector<int>> adjmat1 = {
+    {0, 3, 6, 0, 0, -5},
+    {3, 0, 3, 7, 0, 0},
+    {6, 3, 0, 0, 8, 0},
+    {0, 7, 0, 0, -3, -2},
+    {0, 0, 8, -3, 0, 1},
+    {-5, 0, 0, -2, 1, 0}};
+  g1.loadGraph(adjmat1);
+
+  Graph g2;
+
+  vector<vector<int>> adjmat2 = {
+      {0, 3, 7, 0},
+      {3, 0, 0, 8},
+      {7, 0, 0, -3},
+      {0, 8, -3, 0}};
+  g2.loadGraph(adjmat2);
+
+  CHECK(g1 > g2);
+
+
+  return 0;
 }
 ```
 
